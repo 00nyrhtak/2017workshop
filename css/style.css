@@ -245,6 +245,7 @@ header {
     padding: 0 20px;
     line-height: 1.5; }
   header {
+    background-image: url(../img/bg-rwd.jpg);
     height: 600px; }
     header .content {
       max-width: 200px; }

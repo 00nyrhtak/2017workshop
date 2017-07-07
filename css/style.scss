@@ -1,0 +1,402 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+// mixin
+
+@mixin center{
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+}
+
+@mixin trans{
+    transition: all 300ms ease-in-out;
+}
+
+// basic
+
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #404040;
+    font-family: 'Noto Sans TC','微軟正黑體', sans-serif;
+}
+
+*{
+    position: relative;
+}
+
+$blue: #0606FF;
+$green: #CDFF06;
+
+.clearfix{
+    clear: both;
+}
+
+section{
+    padding: 120px 0;
+    text-align: center;
+
+    h1{
+        font-size: 32px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    h3{
+        color: #808080;
+        margin-bottom: 60px;
+        font-size: 20px;
+    }
+
+    &.bg{
+        background-color: #222;
+        overflow: hidden;
+
+        h1,h3,h4,i{
+            color: #fff;
+        }
+
+        &:after{
+            content: "";
+            display: block;
+            width: 500px;
+            height: 500px;
+            border: 4px solid rgba(64,64,64,0.8);
+            border-radius: 50%;
+            position: absolute;
+            @include center;
+        }
+    }
+}
+
+// header
+
+header{
+
+    background-image: url(../img/bg.jpg);
+    // background-color: rgba(64,64,64,0.8);
+    // background-blend-mode: multiply;
+    background-size: cover;
+    height: 800px;
+
+    .darken{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .container{
+        height: 60px;
+        margin: 0 auto;
+    }
+
+    .logo{
+        top: 50%;
+        transform:translate(0,-50%);
+        float: left;
+        margin-left: 20px;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 2px;
+        cursor: pointer;
+
+        span{
+            margin-right: 2px;
+        }
+
+        .blue{
+            color: $blue;
+        }
+
+        .green{
+            color: $green;
+        }
+    }
+
+    ul{
+        top: 50%;
+        transform:translate(0,-50%);
+        float: right;
+
+        li{
+            float: left;
+            margin-right: 20px;
+
+            a{
+                font-size: 14px;
+                color: rgba(255,255,255,0.8);
+                padding: 10px;
+                letter-spacing: 4;
+                cursor: pointer;
+                border: 2px solid transparent;
+                text-decoration: none;
+                @include trans;
+
+                &:hover{
+                    border: 2px solid rgba(255,255,255,0.8);
+                }
+            }
+        }
+    }
+
+    .close-btn{
+        display: none;
+    }
+
+    .content{
+        display: block;
+        max-width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%,-50%);
+        border: 8px solid #fff;
+        padding: 20px 60px 60px 10px;
+        box-shadow: 4px 4px 0 0 $blue,-4px -4px 0 0 $green;
+        cursor: pointer;
+        @include trans;
+
+        h1{
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            font-size: 60px;
+            color: #fff;
+            letter-spacing: 1;
+            @include trans;
+        }
+
+        h4{
+            position: absolute;
+            left: 50%;
+            transform:translate(-50%,0);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+
+            &.top{
+                top: -40;
+                font-family: 'Work Sans', sans-serif;
+            }
+
+            &.bottom{
+                bottom: -40;
+            }
+        }
+
+        &:hover{
+            box-shadow: 8px 8px 0 0 $blue,-8px -8px 0 0 $green;
+
+            h1{
+                letter-spacing: 2;
+            }
+        }
+    }
+}
+
+// about
+
+.about{
+    width: 70%;
+    padding: 80px 0px 80px 40px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 16px;
+    line-height: 32px;
+    border: 4px solid #404040;
+    cursor: pointer;
+
+    &:after{
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 120px 120px;
+        border-color: transparent transparent $blue transparent;
+        position: absolute;
+        bottom: -10;
+        right: -10;
+        z-index: -10;
+        @include trans;
+    }
+}
+
+// info
+
+.info{
+
+    h4{
+        font-size: 16px;
+        line-height: 32px;
+    }
+
+    i{
+        margin-right: 8px;
+    }
+}
+
+// class
+
+.class{
+    width: 70%;
+    margin: 0 auto;
+    padding: 40px;
+    padding-left: 0px;
+    box-shadow: 0 0 40px 0 rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    border-left: 8px solid $green;
+    cursor: pointer;
+    @include trans;
+
+    .class-week{
+        float: left;
+        width: 20%;
+        font-size: 160px;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600;
+    }
+
+    .class-content{
+        float: right;
+        width: 80%;
+        text-align: left;
+
+        h2{
+            font-size: 20px;
+            border: 2px solid #404040;
+            padding: 10px;
+
+            &:after{
+                content: "";
+                height: 100%;
+                width: 100%;
+                background-color: $green;
+                display: block;
+                position: absolute;
+                top: 8;
+                left: 8;
+                z-index: -1;
+            }
+        }
+
+        ul{
+            margin-top: 10px;
+        }
+
+        li{
+            color: #808080;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    }
+
+    &:hover{
+        background-color: $green;
+    }
+}
+
+// footer
+
+@media screen and (max-width: 768px){
+
+    .class{
+
+        .class-week {
+            width: 100%;
+            text-align: center;
+            padding-left: 20px;
+            font-size: 160px;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .class-content li {
+            line-height: 1.5;
+        }
+    }
+
+    .about{
+        padding: 40px;
+    }
+
+    section h3{
+        padding: 0 20px;
+        line-height: 1.5;
+    }
+
+    header{
+        height: 600px;
+
+        .content{
+            max-width: 200px;
+
+            h1{
+                font-size: 40px;
+            }
+        }
+    }
+
+    header ul{
+        top: -1000%;
+        background: #fff;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        position: absolute;
+        transform: translate(0,0);
+        z-index: 20;
+
+        li{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+
+            a{
+                color: #404040;
+            }
+        }
+    }
+
+    .menu-btn {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        float: right;
+        padding: 15px 0;
+        padding-right: 0;
+        margin-top: 0px;
+        margin-right: 10px;
+    }
+
+    .menu-btn span {
+        display: block;
+        width: 50%;
+        height: 2px;
+        background-color: #fff;
+        margin: 0 auto;
+        margin-top: 8px;
+    }
+
+    header .close-btn{
+        display: block;
+        position: absolute;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        color: #808080;
+        top: 20;
+        right: 20;
+        z-index: 999;
+    }
+
+}
